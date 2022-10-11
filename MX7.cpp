@@ -1,0 +1,118 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+class Circle {
+    public:
+        double pi = M_PI;  // define pi
+        double r; 
+        // circumference function
+        double circumference(double r) {
+            return 2*pi*r;
+        }
+
+        // area function
+        double area(double r) {
+            return pi*r*r; 
+        }
+
+        // volume function
+        double volume(double r) {
+            return (4/3.0)*pi*r*r*r; 
+        }
+};
+
+class InputValidation {
+    public:
+        // function to get radius
+        double get_radius() {
+            double r;
+
+            // check radius input
+            do {
+                // if user entered invalid type
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Invalid input. Please re-enter" << endl;
+                    cin >> r;
+                }
+                else {
+                    cout << "Enter radius in m: ";
+                    cin >> r;
+                }
+
+                // check input if negative
+                while (r < 0) {
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Radius cannot be negative." << endl;
+                    cin >> r;
+                }
+            } while (cin.fail());
+
+            return r;
+        }
+
+        // function to get the user's choice
+        int get_choice() {
+            int choice;
+
+            // check choice input
+            do {
+                // if user entered invalid type
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Invalid choice. Please re-enter" << endl;
+                    cin >> choice;
+                }
+                else {
+                    cout << "Enter 1 for circumference, 2 for area, 3 for volume. ";    
+                    cin >> choice; // input of choice
+                }
+
+                // check input if in range
+                while (choice < 1 || choice > 3) {
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Choice not in range. Please re-enter" << endl;
+                    cin >> choice;
+                }
+            } while (cin.fail());
+
+            return choice;
+        }
+};
+
+class Printing {
+    public:
+        void print_answer(Circle circle, double r, int choice) {
+            if (choice == 1) {  // calculate circumference
+                cout << "The circumference is " << circle.circumference(r) << " m";
+            }
+            else if (choice == 2) {  // calculate area
+                cout << "The area is " << circle.area(r) << " m^2";
+            } 
+            else if (choice == 3) {  // calculate volume
+                cout << "The volume is " << circle.volume(r) << " m^3";
+            }
+            else {
+                cout << "Invalid input. Please re-enter";
+            }
+        }
+};
+
+int main() {
+    double r;
+    int choice;
+    Circle circle;
+    InputValidation validation;
+    Printing printer;
+
+    r = validation.get_radius();
+    choice = validation.get_choice();
+    printer.print_answer(circle, r, choice);
+
+    return 0;
+}
