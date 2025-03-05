@@ -1,0 +1,22 @@
+ENGG 30.02 - Introduction to Programming for Engineers
+  - Machine Exercises
+    - MX1: Basic Input/Output in C++
+      - Calculates and outputs the circumference and area of a circle with radius r.
+    - MX2: Conditional and Loop Statements in C++
+      - Calculates and outputs the circumference and area of a circle with radius r, or the volume of a sphere with radius r.
+    - MX3: Arrays
+      - Basic implementation of char arrays to display the winning finalist out of an array.
+    - MX4: Input Validation
+      - An input form validating a student's name, age, student number, degree program, number of units, guardian name, and home address.
+    - MX5: Functions
+      - Cleans up MX2 code with the use of functions.
+    - MX6: Energy Efficiency in Programming
+      - Not a code exercise.
+    - MX7: Intro to OOP
+      - Implements MX5 using input validation and object-oriented programming.
+   
+  - Machine Problems
+    - MP1: Machine Problem 1
+      - Implements a class database with sorting features, organized neatly into a table format.
+    - MP2: Machine Problem 2
+      - A math quiz program with adjustable difficulty, number of questions, and type of questions (arithmetic / trigonometric).
